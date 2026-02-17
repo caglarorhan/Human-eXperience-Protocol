@@ -2,7 +2,13 @@
 node_modules/
 
 # Build outputs
+dist/
 bindings/typescript/dist/
+
+# Environment
+.env
+.env.local
+.env.*.local
 
 # OS files
 .DS_Store
@@ -10,9 +16,19 @@ Thumbs.db
 
 # Editor
 .vscode/
+.idea/
 *.swp
 *.swo
 
 # npm
 *.tgz
 .npmrc
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build cache
+coverage/
+.cache/
+*.log
+*.tsbuildinfo

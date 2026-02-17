@@ -1,0 +1,62 @@
+{
+  "name": "human-experience-protocol",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Human eXperience Protocol (HXP) - A lightweight, model-agnostic metadata protocol that standardizes how AI systems communicate with humans",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/caglarorhan/Human-eXperience-Protocol.git"
+  },
+  "keywords": [
+    "hxp",
+    "human-experience-protocol",
+    "ai",
+    "protocol",
+    "metadata",
+    "envelope",
+    "intent",
+    "transparency",
+    "cognitive-load",
+    "ai-ux",
+    "interoperability",
+    "json-schema",
+    "model-agnostic",
+    "ai-communication",
+    "observability",
+    "trust"
+  ],
+  "author": "Caglar Orhan <caglarorhan@gmail.com> (https://github.com/caglarorhan)",
+  "license": "MIT",
+  "scripts": {
+    "validate": "node src/validate.js examples/explain.standard.json && node src/validate.js examples/debug.standard.json && node src/validate.js examples/refusal.standard.json && node src/validate.js examples/brainstorm.core.json",
+    "validate:all": "node src/validate.js examples/*.json",
+    "build:ts": "cd bindings/typescript && npm run build",
+    "version:sync": "node scripts/sync-version.js",
+    "preversion": "npm run version:sync",
+    "postversion": "git push && git push --tags"
+  },
+  "bin": {
+    "hxp": "src/cli.js"
+  },
+  "files": [
+    "src/",
+    "schema/",
+    "examples/",
+    "bindings/",
+    "SPEC.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^2.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "main": "src/cli.js",
+  "bugs": {
+    "url": "https://github.com/caglarorhan/Human-eXperience-Protocol/issues"
+  },
+  "homepage": "https://github.com/caglarorhan/Human-eXperience-Protocol"
+}

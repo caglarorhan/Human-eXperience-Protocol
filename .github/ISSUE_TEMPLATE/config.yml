@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Specification
+    url: https://github.com/caglarorhan/Human-eXperience-Protocol/blob/main/SPEC.md
+    about: Read the full HXP v1.0.0 specification
+  - name: 📐 JSON Schema
+    url: https://github.com/caglarorhan/Human-eXperience-Protocol/blob/main/schema/hxp.schema.json
+    about: View the JSON Schema for HXP message validation
+  - name: 🚀 Getting Started Guide
+    url: https://github.com/caglarorhan/Human-eXperience-Protocol/blob/main/GETTING-STARTED.md
+    about: Learn how to integrate HXP into your project

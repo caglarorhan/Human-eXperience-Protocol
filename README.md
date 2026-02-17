@@ -1,5 +1,11 @@
 # HXP — Human eXperience Protocol
 
+[![npm version](https://img.shields.io/npm/v/human-experience-protocol.svg)](https://www.npmjs.com/package/human-experience-protocol)
+[![npm downloads](https://img.shields.io/npm/dm/human-experience-protocol.svg)](https://www.npmjs.com/package/human-experience-protocol)
+[![GitHub Package](https://img.shields.io/badge/GitHub%20Packages-@caglarorhan/human--experience--protocol-blue?logo=github)](https://github.com/caglarorhan/Human-eXperience-Protocol/packages)
+[![License](https://img.shields.io/github/license/caglarorhan/Human-eXperience-Protocol.svg)](https://github.com/caglarorhan/Human-eXperience-Protocol/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/caglarorhan/Human-eXperience-Protocol.svg)](https://github.com/caglarorhan/Human-eXperience-Protocol/stargazers)
+
 **HXP** is a lightweight, model-agnostic metadata protocol that standardizes **how AI systems communicate with humans**.
 
 HXP does not dictate model internals or reasoning. It defines an **envelope** around human-facing content so that systems can reliably express:
@@ -12,9 +18,11 @@ HXP does not dictate model internals or reasoning. It defines an **envelope** ar
 
 > If MCP helps tools talk to tools, **HXP helps AI talk to humans**.
 
+📦 **npm:** [human-experience-protocol](https://www.npmjs.com/package/human-experience-protocol) | 📖 **Spec:** [SPEC.md](SPEC.md) | 🚀 **[Getting Started](GETTING-STARTED.md)**
+
 ---
 
-## Why HXP?
+## 🤔 Why HXP?
 
 Modern AI output is usually plain text. Plain text is flexible but hard to:
 
@@ -25,6 +33,46 @@ Modern AI output is usually plain text. Plain text is flexible but hard to:
 - power UIs with structured "next steps"
 
 HXP makes AI communication **portable**, **observable**, and **human-compatible**.
+
+---
+
+## 👥 Who Should Use This?
+
+| Use Case | HXP Helps You... |
+|----------|-------------------|
+| **AI Product Teams** | Standardize AI output across features and models |
+| **LLM Wrapper Developers** | Add structured metadata without reinventing the wheel |
+| **Agent Frameworks** | Express intent, confidence, and actions consistently |
+| **UX Engineers** | Power adaptive UIs with structured AI metadata |
+| **ML Engineers** | Track and audit AI communication patterns |
+| **Enterprise Teams** | Enforce observability, compliance, and trust signals |
+
+---
+
+## Installation
+
+### From npm (recommended)
+
+```bash
+# Install globally for CLI usage
+npm install -g human-experience-protocol
+
+# Or install locally in your project
+npm install human-experience-protocol
+```
+
+### From GitHub Packages
+
+```bash
+# Configure npm to use GitHub Packages for @caglarorhan scope
+npm config set @caglarorhan:registry https://npm.pkg.github.com
+
+# Install globally
+npm install -g @caglarorhan/human-experience-protocol
+
+# Or locally
+npm install @caglarorhan/human-experience-protocol
+```
 
 ---
 
@@ -65,6 +113,16 @@ See: [SPEC.md](SPEC.md) for full normative definitions.
 ---
 
 ## Quick Start
+
+```bash
+# Validate an HXP message
+hxp validate your-message.json
+
+# Validate all examples
+npm run validate
+```
+
+See the full **[Getting Started Guide](GETTING-STARTED.md)** for step-by-step integration.
 
 ### 1 · Pick a compliance level
 
@@ -118,6 +176,76 @@ Rules for extensions are defined in [SPEC.md § 7.10](SPEC.md#710-hxpextensions-
 
 ---
 
+## Validate an HXP Message
+
+### Node.js (Ajv)
+
+```bash
+npm install
+npm run validate
+```
+
+### Python (jsonschema)
+
+```bash
+pip install jsonschema
+python -c "
+import json
+from jsonschema import validate, Draft202012Validator
+schema = json.load(open('schema/hxp.schema.json'))
+msg = json.load(open('examples/explain.standard.json'))
+Draft202012Validator.check_schema(schema)
+validate(instance=msg, schema=schema)
+print('valid')
+"
+```
+
+---
+
+## CLI Usage
+
+```bash
+npm install -g human-experience-protocol
+
+# Validate a message
+hxp validate message.json
+
+# Show version
+hxp --version
+```
+
+Or via npm scripts:
+
+```bash
+npm run validate          # validate all examples
+npm run validate:all      # validate all examples (glob)
+```
+
+---
+
+## Contents
+
+### Core Files
+- `SPEC.md` — Full RFC-style protocol specification
+- `schema/hxp.schema.json` — JSON Schema (draft 2020-12) for validation
+- `CHANGELOG.md` — Version history and release notes
+
+### Bindings
+- `bindings/typescript/` — TypeScript types + `isHxpMessage()` runtime guard
+
+### Examples
+- `examples/explain.standard.json` — HXP-Standard explanation
+- `examples/debug.standard.json` — HXP-Standard debug with negotiation
+- `examples/refusal.standard.json` — HXP-Full refusal with safety
+- `examples/brainstorm.core.json` — HXP-Core minimal
+
+### Tools
+- `src/cli.js` — CLI entry point
+- `src/validate.js` — Schema validator (Ajv)
+- `scripts/sync-version.js` — Version sync across all files
+
+---
+
 ## Examples
 
 | File | Level | Intent |
@@ -132,16 +260,34 @@ Rules for extensions are defined in [SPEC.md § 7.10](SPEC.md#710-hxpextensions-
 ## Repository Layout
 
 ```
-hxp/
+Human-eXperience-Protocol/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug-report.md
+│   │   ├── feature-request.md
+│   │   ├── design-question.md
+│   │   ├── getting-started.md
+│   │   └── config.yml
+│   └── workflows/
+│       └── validate.yml
 ├── README.md
 ├── SPEC.md
 ├── CHANGELOG.md
+├── RELEASE_NOTES.md
+├── GETTING-STARTED.md
 ├── LICENSE
 ├── CONTRIBUTING.md
 ├── GOVERNANCE.md
 ├── CODE_OF_CONDUCT.md
+├── package.json
 ├── schema/
 │   └── hxp.schema.json
+├── src/
+│   ├── cli.js
+│   ├── validate.js
+│   └── version.js
+├── scripts/
+│   └── sync-version.js
 ├── bindings/
 │   └── typescript/
 │       ├── package.json
@@ -157,9 +303,20 @@ hxp/
 
 ---
 
+## Versioning
+
+- Protocol uses Semantic Versioning.
+- See `SPEC.md` for versioning policy.
+- Version is defined in ONE place: `package.json`
+- All files are synced via `npm run version:sync`
+
 ## License
 
 [MIT](LICENSE)
+
+## Contributing
+
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ---
 
