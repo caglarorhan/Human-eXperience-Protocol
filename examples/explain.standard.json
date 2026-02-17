@@ -1,0 +1,27 @@
+{
+  "hxp": {
+    "version": "1.0.0",
+    "intent": "explain",
+    "delivery": {
+      "verbosity": "medium",
+      "format": "bullets",
+      "tone": "neutral",
+      "language": "en"
+    },
+    "cognition": {
+      "load": 3,
+      "estimated_read_seconds": 40,
+      "chunking": "structured"
+    },
+    "transparency": {
+      "confidence": 0.86,
+      "verification_needed": false,
+      "assumptions": []
+    },
+    "actions": [
+      { "type": "expand", "label": "Go deeper" },
+      { "type": "simplify", "label": "Explain simpler" }
+    ]
+  },
+  "content": "HXP is a metadata envelope that standardizes how AI communicates with humans. It wraps every AI response in a machine-readable layer that declares intent, delivery preferences, cognitive load, transparency signals, and next-step affordances — without constraining how the model reasons internally."
+}

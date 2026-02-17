@@ -1,0 +1,29 @@
+{
+  "name": "@hxp/protocol",
+  "version": "1.0.0",
+  "description": "TypeScript bindings for the Human eXperience Protocol (HXP).",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "node -e \"console.log('Add your linter of choice')\"",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "hxp",
+    "human-experience-protocol",
+    "ai",
+    "metadata",
+    "envelope",
+    "protocol"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

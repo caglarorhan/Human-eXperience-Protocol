@@ -1,0 +1,12 @@
+{
+  "hxp": {
+    "version": "1.0.0",
+    "intent": "brainstorm",
+    "delivery": { "verbosity": "low" },
+    "transparency": { "confidence": 0.62 },
+    "actions": [
+      { "type": "generate_variant", "label": "Give 10 more ideas" }
+    ]
+  },
+  "content": "Here are 5 quick ideas:\n\n1. A CLI that validates HXP envelopes before shipping\n2. A browser extension that visualizes AI confidence inline\n3. A Slack bot that adapts tone per-channel using HXP delivery profiles\n4. A dashboard that tracks cognitive load trends across conversations\n5. An SDK that auto-wraps LLM responses in HXP envelopes"
+}

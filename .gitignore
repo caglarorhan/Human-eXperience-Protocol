@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+bindings/typescript/dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
+*.swo
+
+# npm
+*.tgz
+.npmrc

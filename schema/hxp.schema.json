@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hxp.dev/schema/hxp.schema.json",
+  "title": "HXP Message",
+  "description": "Human eXperience Protocol (HXP) message envelope. Version 1.0.0.",
+  "type": "object",
+  "required": ["hxp", "content"],
+  "additionalProperties": true,
+  "properties": {
+    "hxp": { "$ref": "#/$defs/hxpEnvelope" },
+    "content": {
+      "description": "Human-facing payload. Can be text, markdown, or a structured/multimodal reference.",
+      "oneOf": [
+        { "type": "string" },
+        { "type": "object" }
+      ]
+    }
+  },
+  "$defs": {
+    "hxpEnvelope": {
+      "type": "object",
+      "required": ["version", "intent", "delivery", "transparency", "actions"],
+      "additionalProperties": true,
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Semantic version of the HXP spec this message conforms to.",
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z-.]+)?(?:\\+[0-9A-Za-z-.]+)?$"
+        },
+        "intent": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Primary communicative purpose. Recommended: explain, plan, debug, brainstorm, draft, summarize, evaluate, decide, teach, refuse, reflect."
+        },
+        "delivery": { "$ref": "#/$defs/delivery" },
+        "cognition": { "$ref": "#/$defs/cognition" },
+        "transparency": { "$ref": "#/$defs/transparency" },
+        "negotiation": { "$ref": "#/$defs/negotiation" },
+        "refusal": { "$ref": "#/$defs/refusal" },
+        "safety": { "$ref": "#/$defs/safety" },
+        "extensions": {
+          "type": "object",
+          "description": "Namespaced domain/vendor extensions. Keys SHOULD be namespace identifiers (e.g., education, vendor.acme).",
+          "additionalProperties": true
+        },
+        "actions": {
+          "type": "array",
+          "description": "Interaction affordances offered to the user. May be empty.",
+          "items": { "$ref": "#/$defs/action" }
+        }
+      }
+    },
+    "delivery": {
+      "type": "object",
+      "required": ["verbosity"],
+      "additionalProperties": true,
+      "properties": {
+        "verbosity": {
+          "type": "string",
+          "enum": ["low", "medium", "high"],
+          "description": "Expected depth/length relative to the task."
+        },
+        "format": {
+          "type": "string",
+          "enum": ["bullets", "steps", "narrative", "code", "table", "mixed"],
+          "description": "Structural format of the content."
+        },
+        "tone": {
+          "type": "string",
+          "enum": ["neutral", "direct", "warm", "formal", "playful"],
+          "description": "Communicative tone."
+        },
+        "language": {
+          "type": "string",
+          "description": "BCP-47 language tag, e.g., en, tr, en-US.",
+          "minLength": 2
+        }
+      }
+    },
+    "cognition": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "load": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10,
+          "description": "Relative mental effort to understand (1 = trivial, 10 = very demanding)."
+        },
+        "estimated_read_seconds": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Rough estimate of reading/comprehension time in seconds."
+        },
+        "chunking": {
+          "type": "string",
+          "enum": ["none", "light", "structured"],
+          "description": "Level of content segmentation."
+        }
+      }
+    },
+    "transparency": {
+      "type": "object",
+      "required": ["confidence"],
+      "additionalProperties": true,
+      "properties": {
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Subjective likelihood the response is correct/helpful for the stated intent."
+        },
+        "verification_needed": {
+          "type": "boolean",
+          "description": "True if the user should verify with external sources."
+        },
+        "assumptions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Brief, user-relevant assumptions the response depends on."
+        },
+        "limits": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Known limitations (missing info, time sensitivity, etc.)."
+        }
+      }
+    },
+    "negotiation": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "intent_confirmed": {
+          "type": "boolean",
+          "description": "Whether the producer has validated the user's intent."
+        },
+        "clarifying_questions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Questions to align understanding before proceeding."
+        }
+      }
+    },
+    "action": {
+      "type": "object",
+      "required": ["type"],
+      "additionalProperties": true,
+      "properties": {
+        "type": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Action identifier. Recommended: ask_followup, refine_request, simplify, expand, generate_variant, compare_options, verify_sources, create_plan, export_schema, show_examples."
+        },
+        "label": {
+          "type": "string",
+          "description": "User-facing display text for the action."
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Arbitrary structured data associated with the action."
+        }
+      }
+    },
+    "refusal": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["safety", "legal", "capability", "policy", "unknown"],
+          "description": "Category of refusal."
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["soft", "hard"],
+          "description": "Whether the refusal is negotiable (soft) or absolute (hard)."
+        },
+        "redirect_available": {
+          "type": "boolean",
+          "description": "Whether a safer alternative can be offered."
+        }
+      }
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "alignment_source": {
+          "type": "string",
+          "description": "Doctrine-neutral label for the alignment source (e.g., constitutional, policy, local_rules)."
+        },
+        "harm_risk": {
+          "type": "string",
+          "enum": ["low", "medium", "high"],
+          "description": "Assessed risk level."
+        },
+        "safety_flag": {
+          "type": "boolean",
+          "description": "Whether a safety policy was triggered."
+        }
+      }
+    }
+  }
+}

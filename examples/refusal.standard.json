@@ -1,0 +1,32 @@
+{
+  "hxp": {
+    "version": "1.0.0",
+    "intent": "refuse",
+    "delivery": {
+      "verbosity": "medium",
+      "format": "bullets",
+      "tone": "neutral",
+      "language": "en"
+    },
+    "transparency": {
+      "confidence": 0.98,
+      "verification_needed": false,
+      "assumptions": []
+    },
+    "safety": {
+      "alignment_source": "policy",
+      "harm_risk": "high",
+      "safety_flag": true
+    },
+    "refusal": {
+      "type": "safety",
+      "severity": "hard",
+      "redirect_available": true
+    },
+    "actions": [
+      { "type": "redirect", "label": "Ask for a safe alternative" },
+      { "type": "explain_policy", "label": "Why I can't help with this" }
+    ]
+  },
+  "content": "I can't help with that request. If you tell me your goal, I can suggest safer alternatives."
+}
