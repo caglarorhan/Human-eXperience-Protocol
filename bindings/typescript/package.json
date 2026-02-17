@@ -1,5 +1,5 @@
 {
-  "name": "@hxp/protocol",
+  "name": "hxp-protocol",
   "version": "1.0.0",
   "description": "TypeScript bindings for the Human eXperience Protocol (HXP).",
   "type": "module",
@@ -20,9 +20,21 @@
     "ai",
     "metadata",
     "envelope",
-    "protocol"
+    "protocol",
+    "typescript",
+    "ai-communication"
   ],
+  "author": "Caglar Orhan <caglarorhan@gmail.com> (https://github.com/caglarorhan)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/caglarorhan/Human-eXperience-Protocol.git",
+    "directory": "bindings/typescript"
+  },
+  "bugs": {
+    "url": "https://github.com/caglarorhan/Human-eXperience-Protocol/issues"
+  },
+  "homepage": "https://github.com/caglarorhan/Human-eXperience-Protocol#readme",
   "devDependencies": {
     "typescript": "^5.0.0"
   }
