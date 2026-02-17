@@ -33,11 +33,16 @@ hxp validate your-message.json
 ### Option B: TypeScript Bindings
 
 ```bash
-npm install @hxp/protocol
+# From npm
+npm install hxp-protocol
+
+# From GitHub Packages
+npm config set @caglarorhan:registry https://npm.pkg.github.com
+npm install @caglarorhan/hxp-protocol
 ```
 
 ```typescript
-import { HxpMessage, isHxpMessage } from '@hxp/protocol';
+import { HxpMessage, isHxpMessage } from 'hxp-protocol';
 
 const msg: HxpMessage = {
   hxp: {

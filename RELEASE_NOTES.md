@@ -20,7 +20,12 @@ hxp validate message.json
 
 ### 📐 TypeScript Bindings
 ```bash
-npm install @hxp/protocol
+# From npm
+npm install hxp-protocol
+
+# From GitHub Packages
+npm config set @caglarorhan:registry https://npm.pkg.github.com
+npm install @caglarorhan/hxp-protocol
 ```
 - Full type definitions for all HXP envelope fields
 - `isHxpMessage()` runtime type guard for HXP-Core compliance
@@ -47,6 +52,11 @@ npm install -g @caglarorhan/human-experience-protocol
 ## 🔗 Links
 
 - **GitHub:** https://github.com/caglarorhan/Human-eXperience-Protocol
+- **GitHub Release:** https://github.com/caglarorhan/Human-eXperience-Protocol/releases/tag/v1.0.0
+- **npm (CLI):** https://www.npmjs.com/package/human-experience-protocol
+- **npm (TypeScript bindings):** https://www.npmjs.com/package/hxp-protocol
+- **GitHub Packages (CLI):** https://github.com/caglarorhan/Human-eXperience-Protocol/packages
+- **GitHub Packages (TypeScript bindings):** https://github.com/caglarorhan/Human-eXperience-Protocol/packages
 - **Specification:** [SPEC.md](SPEC.md)
 - **Schema:** [schema/hxp.schema.json](schema/hxp.schema.json)
 

@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial HXP specification (HXP-Core / HXP-Standard / HXP-Full)
 - JSON Schema (draft 2020-12)
-- TypeScript bindings (`@hxp/protocol`) with runtime type guard
+- TypeScript bindings (`hxp-protocol` on npm / `@caglarorhan/hxp-protocol` on GitHub Packages) with runtime type guard
 - Example envelopes: explain, debug, refusal, brainstorm
 - SPEC.md with RFC-style normative language (MUST/SHOULD/MAY)
 - CLI tools: `hxp validate` command with Ajv schema validation
@@ -23,3 +23,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Community files: CONTRIBUTING.md, GOVERNANCE.md, CODE_OF_CONDUCT.md
 - npm package configuration with CLI entry point
 - Comprehensive .gitignore
+- Published to npm: `human-experience-protocol` (CLI) and `hxp-protocol` (TypeScript bindings)
+- Published to GitHub Packages: `@caglarorhan/human-experience-protocol` and `@caglarorhan/hxp-protocol`
+- GitHub Release: https://github.com/caglarorhan/Human-eXperience-Protocol/releases/tag/v1.0.0
+
+[1.0.0]: https://github.com/caglarorhan/Human-eXperience-Protocol/releases/tag/v1.0.0

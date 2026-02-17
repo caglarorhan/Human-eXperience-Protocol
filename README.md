@@ -2,6 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/human-experience-protocol.svg)](https://www.npmjs.com/package/human-experience-protocol)
 [![npm downloads](https://img.shields.io/npm/dm/human-experience-protocol.svg)](https://www.npmjs.com/package/human-experience-protocol)
+[![npm version (TS)](https://img.shields.io/npm/v/hxp-protocol.svg?label=hxp-protocol)](https://www.npmjs.com/package/hxp-protocol)
 [![GitHub Package](https://img.shields.io/badge/GitHub%20Packages-@caglarorhan/human--experience--protocol-blue?logo=github)](https://github.com/caglarorhan/Human-eXperience-Protocol/packages)
 [![License](https://img.shields.io/github/license/caglarorhan/Human-eXperience-Protocol.svg)](https://github.com/caglarorhan/Human-eXperience-Protocol/blob/main/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/caglarorhan/Human-eXperience-Protocol.svg)](https://github.com/caglarorhan/Human-eXperience-Protocol/stargazers)
@@ -18,7 +19,7 @@ HXP does not dictate model internals or reasoning. It defines an **envelope** ar
 
 > If MCP helps tools talk to tools, **HXP helps AI talk to humans**.
 
-📦 **npm:** [human-experience-protocol](https://www.npmjs.com/package/human-experience-protocol) | 📖 **Spec:** [SPEC.md](SPEC.md) | 🚀 **[Getting Started](GETTING-STARTED.md)**
+📦 **npm (CLI):** [human-experience-protocol](https://www.npmjs.com/package/human-experience-protocol) · **npm (TS):** [hxp-protocol](https://www.npmjs.com/package/hxp-protocol) | 📖 **Spec:** [SPEC.md](SPEC.md) | 🚀 **[Getting Started](GETTING-STARTED.md)**
 
 ---
 
@@ -73,6 +74,30 @@ npm install -g @caglarorhan/human-experience-protocol
 # Or locally
 npm install @caglarorhan/human-experience-protocol
 ```
+
+### TypeScript Bindings
+
+```bash
+# From npm
+npm install hxp-protocol
+
+# From GitHub Packages
+npm config set @caglarorhan:registry https://npm.pkg.github.com
+npm install @caglarorhan/hxp-protocol
+```
+
+```typescript
+import { HxpMessage, isHxpMessage } from 'hxp-protocol';
+```
+
+### Published Packages
+
+| Package | Registry | Link |
+|---------|----------|------|
+| `human-experience-protocol` | npm | [npmjs.com/package/human-experience-protocol](https://www.npmjs.com/package/human-experience-protocol) |
+| `hxp-protocol` | npm | [npmjs.com/package/hxp-protocol](https://www.npmjs.com/package/hxp-protocol) |
+| `@caglarorhan/human-experience-protocol` | GitHub Packages | [github.com/…/packages](https://github.com/caglarorhan/Human-eXperience-Protocol/packages) |
+| `@caglarorhan/hxp-protocol` | GitHub Packages | [github.com/…/packages](https://github.com/caglarorhan/Human-eXperience-Protocol/packages) |
 
 ---
 
